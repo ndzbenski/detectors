@@ -58,7 +58,6 @@ sub define_bank
     insert_bank_variable(\%configuration, $bankname, "Time",         5, "Dd", "Time [ns]");
 	insert_bank_variable(\%configuration, $bankname, "ADC",          6, "Dd", "ADC");
 	insert_bank_variable(\%configuration, $bankname, "Ped",          7, "Dd", "Pedestal");
-    insert_bank_variable(\%configuration, $bankname, "TimeShift",    8, "Dd", "Time Shift [ns]");
 	insert_bank_variable(\%configuration, $bankname, "hitn",         99, "Di", "hit number");
 }
 
