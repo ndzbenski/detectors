@@ -1105,7 +1105,7 @@ sub build_targets
     {
         # bonus root volume
         my $Rout       = 4;
-        my $length     = 225.0;  # half length
+        my $length     = 255.0;  # half length
         my %detector = init_det();
         $detector{"name"}        = "bonusTarget";
         $detector{"mother"}      = "root";
@@ -1119,6 +1119,7 @@ sub build_targets
         print_det(\%configuration, \%detector);
         
         # bonus target gas volume
+        my $rtpc_zshift = 30.0;
         my $Rin        = 0.0;
         $Rout       = 3.0;
         $length     = 223.0;  # half length
@@ -1128,6 +1129,7 @@ sub build_targets
         $detector{"description"} = "7 atm deuterium target gas";
         $detector{"color"}       = "a54382";
         $detector{"type"}        = "Tube";
+        $detector{"pos"}         = "0*mm 0*mm $rtpc_zshift*mm";
         $detector{"dimensions"}  = "$Rin*mm $Rout*mm $length*mm 0*deg 360*deg";
         $detector{"material"}    = "bonusTargetGas";
         $detector{"style"}       = "1";
@@ -1143,6 +1145,7 @@ sub build_targets
         $detector{"description"} = "Bonus Target wall";
         $detector{"color"}       = "330099";
         $detector{"type"}        = "Tube";
+        $detector{"pos"}         = "0*mm 0*mm $rtpc_zshift*mm";
         $detector{"dimensions"}  = "$Rin*mm $Rout*mm $length*mm 0*deg 360*deg";
         $detector{"material"}    = "G4_KAPTON";
         $detector{"style"}       = "1";
@@ -1152,7 +1155,7 @@ sub build_targets
         $Rin        = 3.0561;
         $Rout       = 3.1561;
         $length     = 2.0;  # half length
-        my $zPos       = 221;  # z position
+        my $zPos       = 221+$rtpc_zshift;  # z position
         %detector = init_det();
         $detector{"name"}        = "bonusTargetEndCapRing";
         $detector{"mother"}      = "bonusTarget";
@@ -1169,7 +1172,7 @@ sub build_targets
         $Rin        = 0.0;
         $Rout       = 3.1561;
         $length     = 0.05;  # half length
-        $zPos       = 223.06;  # z position
+        $zPos       = 223.06+$rtpc_zshift;  # z position
         %detector = init_det();
         $detector{"name"}        = "bonusTargetEndCapPlate";
         $detector{"mother"}      = "bonusTarget";
